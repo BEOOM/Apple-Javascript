@@ -60,6 +60,9 @@
       a.innerHTML = "ㅁㅁ";
       document.querySelector("#test").appendChild(a);
 
+      var pants = [28, 30, 32];
+      var shirts = [95, 100, 105];
+
       // document
       //   .querySelectorAll(".form-select")[0]
       //   .addEventListener("input", function () {
@@ -75,26 +78,32 @@
       document.querySelector(".car-title").innerHTML = car2.name;
       document.querySelector(".car-price").innerHTML = car2.price[2];
 
-      document
-        .querySelectorAll(".form-select")[0]
-        .addEventListener("input", function () {
-          if (document.querySelectorAll(".form-select")[0].value == "셔츠") {
-            document
-              .querySelectorAll(".form-select")[1]
-              .classList.remove("form-hide");
-            var 템플 = `<option>95</option><option>100</option>`;
-            document.querySelectorAll(".form-select")[1].innerHTML = 템플;
-          } else if (
-            document.querySelectorAll(".form-select")[0].value == "바지"
-          ) {
-            document
-              .querySelectorAll(".form-select")[1]
-              .classList.remove("form-hide");
-            var 템플릿 = `<option>28</option><option>30</option>`;
-            // $(".form-select").eq(1).append(템플릿);
-            document.querySelectorAll(".form-select")[1].innerHTML = 템플릿;
-          }
-        });
+      // document
+      //   .querySelectorAll(".form-select")[0]
+      //   .addEventListener("input", function () {
+
+      //     if (document.querySelectorAll(".form-select")[0].value == "셔츠") {
+      //       document
+      //         .querySelectorAll(".form-select")[1]
+      //         .classList.remove("form-hide");
+      //       var 템플 = `<option>95</option><option>100</option>`;
+      //       document.querySelectorAll(".form-select")[1].innerHTML = 템플;
+      //     } else if (
+      //       document.querySelectorAll(".form-select")[0].value == "바지"
+      //     ) {
+      //       document
+      //         .querySelectorAll(".form-select")[1]
+      //         .classList.remove("form-hide");
+      //       var 템플릿 = `<option>28</option><option>30</option>`;
+      //       $(".form-select").eq(1).append(템플릿);
+      //       pants.forEach(function (a) {
+      //         document.querySelectorAll(
+      //           ".form-select"
+      //         )[1].innerHTML = `<option>${a}</option>`;
+      //       });
+      //       console.log();
+      //     }
+      //   });
 
       // document
       //   .querySelectorAll(".form-select")[0]
@@ -108,20 +117,25 @@
       //   });
 
       // jquery;
-      // $(".form-select")
-      //   .eq(0)
-      //   .on("input", function () {
-      //     var value = $(".form-select").eq(0).val();
-      //     var value = this.value;
-      //     if (value == "셔츠") {
-      //       $(".form-select").eq(1).removeClass("form-hide");
-      //     } else if (value == "바지") {
-      //       $(".form-select").eq(1).removeClass("form-hide");
-      //       $(".form-hide").eq(1).html("");
-      //       var 템플릿 = `<option>28</option><option>30</option>`;
-      //       $(".form-select").eq(1).html(템플릿);
-      //     }
-      //   });
+      $(".form-select")
+        .eq(0)
+        .on("input", function () {
+          var value = $(".form-select").eq(0).val();
+          var value = this.value;
+          if (value == "셔츠") {
+            $(".form-select").eq(1).removeClass("form-hide");
+            $(".form-select").eq(1).html("");
+            shirts.forEach(function (b) {
+              $(".form-select").eq(1).append(`<option>${b}</option>`);
+            });
+          } else if (value == "바지") {
+            $(".form-select").eq(1).removeClass("form-hide");
+            $(".form-select").eq(1).html("");
+            pants.forEach(function (a) {
+              $(".form-select").eq(1).append(`<option>${a}</option>`);
+            });
+          }
+        });
     </script>
     <script src="tab.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
