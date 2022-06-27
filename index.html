@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="alert-box" id="alert">
+      <p id="alertInfo">알림창임</p>
+      <button id="close">닫기</button>
+    </div>
+    <button onclick="alert('block')">버튼</button>
+    <button onclick="changAlert('아이디입력하세요')">아이디</button>
+    <button onclick="changAlert('비번입력하세요')">비번</button>
+
+    <script>
+      //   function closeBtn() {
+      //     document.getElementById("alert").style.display = "none";
+      //   }
+      //   function openBtn() {
+      //     document.getElementById("alert").style.display = "block";
+      //   }
+
+      document.getElementById("close").addEventListener("click", function () {
+        document.getElementById("alert").style.display = "none";
+      });
+
+      function changAlert(x) {
+        document.getElementById("alertInfo").innerHTML = x;
+        document.getElementById("alert").style.display = "block";
+      }
+
+      function alert(x) {
+        document.getElementById("alert").style.display = x;
+      }
+    </script>
+  </body>
+</html>
