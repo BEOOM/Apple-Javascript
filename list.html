@@ -143,10 +143,25 @@
       products.forEach((a, i) => {
         var card = `<div class="col-sm-4">
           <img src="https://via.placeholder.com/600" class="w-100">
-          <h5>${products[i].title}</h5>
+          <h5 class="title">${products[i].title}</h5>
           <p>가격 : ${products[i].price}</p>
+          <button class="buy">구매</button>
         </div>`;
         $(".row").append(card);
+      });
+
+      //버튼 클릭 시 로컬스토리지에 품명 저장
+      $(".buy").click(function (e) {
+        var title = $(e.target).siblings("h5").text();
+        if (localStorage.getItem("cart") !== null) {
+          var data = JSON.parse(localStorage.cart);
+          if (data.indexOf(title) == -1) {
+            data.push(title);
+            localStorage.setItem("cart", JSON.stringify(data));
+          }
+        } else {
+          localStorage.setItem("cart", JSON.stringify([title]));
+        }
       });
 
       //   for (let i = 0; i < 3; i++) {
